@@ -72,6 +72,9 @@ get_header();
                                         <h2><?php the_field('section_i_title') ?></h2>
                                         <p><?php the_field('column_i_text') ?></p>
                                     </div>
+                                                                        <div class="buttons">
+                                        <a class="button" href="<?php the_field('cta_link'); ?>"><?php the_field('cta_text') ?></a>
+                                    </div> 
                                 </div>
                             </div>
                         </div>
@@ -92,6 +95,9 @@ get_header();
                                         <h2><?php the_field('section_ii_title') ?></h2>
                                         <p><?php the_field('column_ii_text') ?></p>
                                     </div>
+                                                                        <div class="buttons">
+                                        <a class="button" href="<?php the_field('cta_link'); ?>"><?php the_field('cta_text') ?></a>
+                                    </div> 
                                 </div>
                             </div>
                         </div>
