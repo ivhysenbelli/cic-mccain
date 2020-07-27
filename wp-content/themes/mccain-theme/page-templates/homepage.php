@@ -43,6 +43,16 @@ get_header();
                                     <h2><?php the_field('description_title') ?></h2>
                                     <p><?php the_field('description_text'); ?></p>
                                 </div>
+                                <?php if(have_rows('description_images')): ?>
+                                    <div class="data-images">
+                                        <?php while(have_rows('description_images')): the_row(); ?>
+                                            <div class="single-image">
+                                                <?php $singleImage = get_sub_field('image'); ?>
+                                                <img src="<?php echo $singleImage['url']; ?>" alt="">
+                                            </div>
+                                        <?php endwhile; ?>
+                                    </div>
+                                <?php endif; ?>
                             </div>
                         </div>
                         
