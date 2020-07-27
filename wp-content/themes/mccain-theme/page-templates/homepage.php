@@ -36,18 +36,57 @@ get_header();
                         </div>
                     </section>
 
-                    <section class="description">
+                    <section class="description d-flex align-items-center just-content-center">
+                        <div class="row">
+                            <div class="col-md-8 m-auto">
+                                <div class="data">
+                                    <h2><?php the_field('description_title') ?></h2>
+                                    <p><?php the_field('description_text'); ?></p>
+                                </div>
+                            </div>
+                        </div>
                         
                     </section>
 
                     <section class="two-columns">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <?php $firstColumnImage = get_field('column_i_image'); ?>
+                                <div class="image-col" style="background-image: url('<?php echo $firstColumnImage['url'] ?>')">
+                                    
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="data-col">
+                                    <div class="data">
+                                        <h2><?php the_field('section_i_title') ?></h2>
+                                        <p><?php the_field('column_i_text') ?></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         
                     </section>
 
-                    <section class="two-columns row-reverse">
+                    <section class="two-columns">
+                        <div class="row row-reverse">
+                            <div class="col-md-6">
+                                <?php $secondColumnImage = get_field('column_ii_image'); ?>
+                                <div class="image-col" style="background-image: url('<?php echo $secondColumnImage['url'] ?>')">
+                                    
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="data-col">
+                                    <div class="data">
+                                        <h2><?php the_field('section_ii_title') ?></h2>
+                                        <p><?php the_field('column_ii_text') ?></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         
                     </section>
-
                 </main><!-- #main -->
 
     </div><!-- #content -->
