@@ -13,9 +13,6 @@ defined( 'ABSPATH' ) || exit;
 get_header();
 ?>
 
-
-
-
 <div id="full-width-page-wrapper">
     <div class="container-fluid" id="content">
                 <main class="site-main" id="main" role="main">
