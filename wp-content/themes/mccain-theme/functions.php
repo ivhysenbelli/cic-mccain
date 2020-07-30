@@ -101,3 +101,4 @@ function wc_checkout_description_so_15127954( $other_data, $cart_item )
     $other_data[] = array( 'name' =>  $post_data->post_excerpt );
     return $other_data;
 }
+
