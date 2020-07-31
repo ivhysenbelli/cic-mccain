@@ -25,6 +25,18 @@ $container = get_theme_mod( 'understrap_container_type' );
 
                 <main class="site-main" id="main" role="main">
 
+                    <section class="description d-flex align-items-center just-content-center">
+                        <div class="row">
+                            <div class="col-md-8 m-auto">
+                                    <div class="data">
+                                        <h2><?php the_field('section_title') ?></h2>
+                                        <p><?php the_field('section_description'); ?></p>
+                                    </div>
+                            </div>
+                        </div>
+                    </section>
+
+
                     <?php while ( have_posts() ) : the_post(); ?>
 
                         <?php get_template_part( 'loop-templates/content', 'page' ); ?>

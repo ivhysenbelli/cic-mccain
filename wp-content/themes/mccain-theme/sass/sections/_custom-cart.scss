@@ -1,4 +1,13 @@
 .page-template-custom-cart {
+    .entry-header {
+        display: none;
+    }
+
+    section.description {
+        min-height: auto;
+        margin-top: 3em;
+    }
+
     .woocomerece {
         @include media-breakpoint-up(lg) {
             min-width: 1140px;
@@ -44,10 +53,28 @@
                             pointer-events: none;
                         }
 
+                        &:before {
+                            content: '';
+                            background-color: green;
+                            display: none;
+                        }
+
                         dt {
                             color: darken(#d0d0d0, 10%);
                             font-size: 1rem;
                             font-weight: 400;
+                        }
+                    }
+
+                    @include media-breakpoint-down(md) {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+
+                        span,
+                        div {
+                            width: fit-content;
+                            margin-left: auto;
                         }
                     }
                 }
@@ -254,27 +281,36 @@
     text-align: center;
     max-width: 550px;
     margin: 0 auto;
-    .place-order{
-        display: flex; 
+
+    .place-order {
+        display: flex;
         align-items: center;
         justify-content: center;
     }
+
     .wc_payment_methods.payment_methods.methods {
         display: none;
     }
-    p{
+
+    p {
         text-align: center;
         display: block;
         font-size: .85rem;
         font-weight: 300;
-        color: #d0d0d0;
+        color: darken(#d0d0d0, 35%);
         margin-bottom: 0;
 
     }
-    .woocommerce form .form-row label.checkbox, .woocommerce-page form .form-row label.checkbox{
+
+    .woocommerce form .form-row label.checkbox,
+    .woocommerce-page form .form-row label.checkbox {
         display: flex;
         align-items: center;
         justify-content: center;
+    }
+
+    .wc_ppec_responsive_payment_buttons {
+        margin-top: 1.5em;
     }
 
 }
