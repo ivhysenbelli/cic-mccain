@@ -76,29 +76,37 @@ echo do_shortcode('[woocommerce_cart]');
 }
 
 /**
- * @snippet       Redirect Empty Cart/Checkout - WooCommerce
+ * @snippet       Add one item when to cart - WooCommerce
  * @how-to        Get CustomizeWoo.com FREE
- * @sourcecode    https://businessbloomer.com/?p=80321
- * @author        Rodolfo Melogli
+ * @author        Ivi Hysenbelli
  * @compatible    WooCommerce 3.5.7
- * @donate $9     https://businessbloomer.com/bloomer-armada/
  */
- 
-add_action( 'template_redirect', 'bbloomer_redirect_empty_cart_checkout_to_home' );
- 
-function bbloomer_redirect_empty_cart_checkout_to_home() {
-   if ( is_cart() && is_checkout() && 0 == WC()->cart->get_cart_contents_count() && ! is_wc_endpoint_url( 'order-pay' ) && ! is_wc_endpoint_url( 'order-received' ) ) {
-      wp_safe_redirect( home_url() );
-      exit;
-   }
-}
+add_action( 'template_redirect', 'add_product_to_cart' );
+function add_product_to_cart() {
 
-// add this filter in functions.php file
-add_filter( 'woocommerce_get_item_data', 'wc_checkout_description_so_15127954', 10, 2 );
-function wc_checkout_description_so_15127954( $other_data, $cart_item )
-{
-    $post_data = get_post( $cart_item['product_id'] );
-    $other_data[] = array( 'name' =>  $post_data->post_excerpt );
-    return $other_data;
+    if ( ! is_admin() && is_page(71) ) {
+        $product_id = 34;
+        $found = false;
+        //check if product already in cart
+        if ( sizeof( WC()->cart->get_cart() ) > 0 ) {
+            foreach ( WC()->cart->get_cart() as $cart_item_key => $values ) {
+                $_product = $values['data'];
+                if ( $_product->id == $product_id ) {
+                    $found = true;
+                }
+            }
+            // if product not found, add it
+            if ( ! $found ){
+                WC()->cart->add_to_cart( $product_id );
+            }
+        } else {
+            // if no products in cart, add it
+            WC()->cart->add_to_cart( $product_id );
+        }
+
+        // Redirect users to checkout after add to cart
+        wp_redirect( wc_get_checkout_url() );
+        exit;
+    }
 }
 
