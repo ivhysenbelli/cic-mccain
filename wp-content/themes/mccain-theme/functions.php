@@ -114,9 +114,9 @@ function add_product_to_cart() {
     add_filter('woocommerce_checkout_fields', 'custom_override_checkout_fields');
     function custom_override_checkout_fields($fields)
      {
-     unset($fields['billing']['billing_address_1']['label']);
-     $fields['billing']['billing_address_1']['placeholder'] = "Address";
-     $fields['billing']['billing_city']['placeholder'] = "City";
-     $fields['billing']['billing_postcode']['placeholder'] = "Postcode";
+     $fields['billing']['billing_address_1']['placeholder'] = "Via e numero civico*";
+     $fields['billing']['billing_city']['placeholder'] = "Citta";
+     $fields['billing']['billing_postcode']['placeholder'] = "Codice Postale*";
+
      return $fields;
-     } 
+     }

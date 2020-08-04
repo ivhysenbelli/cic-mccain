@@ -12,7 +12,23 @@ defined( 'ABSPATH' ) || exit;
 
 get_header();
 ?>
+<?php  
+date_default_timezone_set('Europe/Rome');
 
+$openMiday = "12:00:00";
+$closeMiday = "15:00:00";
+$openNoon = "19:00:00";
+$closeNoon = "22:30:00";
+$now = strtotime(date("H:i:s"));
+
+if ($now >= strtotime($openMiday) && $now <= strtotime($closeMiday) || $now >= strtotime($openNoon) && $now <= strtotime($closeNoon)) {
+  $order = get_field('cta_text'); 
+}
+else{
+        $order = "Pre-ordina";
+}
+
+?>
 <div id="full-width-page-wrapper">
     <div class="container-fluid" id="content">
                 <main class="site-main" id="main" role="main">
@@ -25,7 +41,7 @@ get_header();
                                     <h1><?php the_field('banner_title') ?></h1>
                                     <p><?php the_field('banner_description') ?></p>
                                     <div class="buttons">
-                                        <a class="button" href="<?php the_field('cta_link'); ?>"><?php the_field('cta_text') ?></a>
+                                        <a class="button" href="<?php the_field('cta_link'); ?>"><?php echo $order ?></a>
                                     </div>    
                                 </div>
                                 
@@ -70,7 +86,7 @@ get_header();
                                         <p><?php the_field('column_i_text') ?></p>
                                     </div>
                                                                         <div class="buttons">
-                                        <a class="button" href="<?php the_field('cta_link'); ?>"><?php the_field('cta_text') ?></a>
+                                        <a class="button" href="<?php the_field('cta_link'); ?>"><?php echo $order ?></a>
                                     </div> 
                                 </div>
                             </div>
@@ -93,7 +109,7 @@ get_header();
                                         <p><?php the_field('column_ii_text') ?></p>
                                     </div>
                                                                         <div class="buttons">
-                                        <a class="button" href="<?php the_field('cta_link'); ?>"><?php the_field('cta_text') ?></a>
+                                        <a class="button" href="<?php the_field('cta_link'); ?>"><?php echo $order ?></a>
                                     </div> 
                                 </div>
                             </div>
