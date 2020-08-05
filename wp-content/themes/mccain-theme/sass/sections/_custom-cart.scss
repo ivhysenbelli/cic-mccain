@@ -1,4 +1,7 @@
 .page-template-custom-cart {
+#billing_country_field{
+    display: none;
+}
     .entry-header {
         display: none;
     }
@@ -312,5 +315,4 @@
     .wc_ppec_responsive_payment_buttons {
         margin-top: 1.5em;
     }
-
 }
