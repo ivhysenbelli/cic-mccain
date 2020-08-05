@@ -93,7 +93,7 @@ else{
                         </div>
                         
                     </section>
-
+<!-- 
                     <section class="two-columns">
                         <div class="row row-reverse">
                             <div class="col-md-6">
@@ -115,7 +115,7 @@ else{
                             </div>
                         </div>
                         
-                    </section>
+                    </section> -->
                 </main><!-- #main -->
 
     </div><!-- #content -->
