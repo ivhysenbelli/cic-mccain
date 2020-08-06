@@ -130,3 +130,44 @@ function add_product_to_cart() {
     
         return $address_fields;
     }
+
+/**
+ * Update the order meta with field value
+ */
+add_action( 'woocommerce_checkout_update_order_meta', 'my_custom_checkout_field_update_order_meta' );
+
+function my_custom_checkout_field_update_order_meta( $order_id ) {
+    if ( ! empty( $_POST['lunch_time_slot'] ) ) {
+        update_post_meta( $order_id, 'lunch_time_slot', sanitize_text_field( $_POST['lunch_time_slot'] ) );
+    }
+}
+
+
+/**
+ * Display field value on the order edit page
+ */
+add_action( 'woocommerce_admin_order_data_after_billing_address', 'my_custom_checkout_field_display_admin_order_meta', 10, 1 );
+
+function my_custom_checkout_field_display_admin_order_meta($order){
+    echo '<p><strong>'.__('Lunch time').':</strong> <br/>' . get_post_meta( $order->get_id(), 'lunch_time_slot', true ) . '</p>';
+}
+/**
+ * Update the order meta with field value
+ */
+add_action( 'woocommerce_checkout_update_order_meta_2', 'my_custom_checkout_field_update_order_meta' );
+
+function my_custom_checkout_field_update_order_meta_2( $order_id ) {
+    if ( ! empty( $_POST['dinner_time_slot'] ) ) {
+        update_post_meta( $order_id, 'dinner_time_slot', sanitize_text_field( $_POST['dinner_time_slot'] ) );
+    }
+}
+
+
+/**
+ * Display field value on the order edit page
+ */
+add_action( 'woocommerce_admin_order_data_after_billing_address_2', 'my_custom_checkout_field_display_admin_order_meta', 10, 1 );
+
+function my_custom_checkout_field_display_admin_order_meta_2($order){
+    echo '<p><strong>'.__('Dinner time').':</strong> <br/>' . get_post_meta( $order->get_id(), 'dinner_time_slot', true ) . '</p>';
+}
