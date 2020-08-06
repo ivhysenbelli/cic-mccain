@@ -1,7 +1,8 @@
 .page-template-custom-cart {
-#billing_country_field{
-    display: none;
-}
+    #billing_country_field {
+        display: none;
+    }
+
     .entry-header {
         display: none;
     }
@@ -197,6 +198,14 @@
             max-width: 50%;
             padding: 0 1em;
             margin-bottom: 1em;
+            
+            &#dinner_time_slot_field,
+            &#lunch_time_slot_field{
+                display: none;
+                &.show-elem{
+                    display: block;
+                }
+            }
 
             @include media-breakpoint-down(sm) {
                 flex: 1 0 100%;
@@ -208,10 +217,38 @@
                 display: none;
             }
 
-            input {
+            input,
+            select {
                 border-radius: 5px;
                 padding: 26px 26px;
                 font-size: 1rem;
+
+                &:focus,
+                &:hover,
+                &:active {
+                    box-shadow: none;
+                }
+            }
+
+            .select2-container {
+                width: 100% !important;
+
+                .select2-selection__clear {
+                    display: none;
+                }
+            }
+
+            .select2-container--default .select2-selection--single .select2-selection__arrow {
+                top: 15px;
+                right: 10px;
+            }
+
+            .select2-container--default .select2-selection--single {
+                border-radius: 5px;
+                padding: 12px 14px;
+                font-size: 1rem;
+                height: auto;
+                border: 1px solid #ced4da;
 
                 &:focus,
                 &:hover,

@@ -112,11 +112,21 @@ function add_product_to_cart() {
 
 
     add_filter('woocommerce_checkout_fields', 'custom_override_checkout_fields');
+    
     function custom_override_checkout_fields($fields)
-     {
-     $fields['billing']['billing_address_1']['placeholder'] = "Via e numero civico*";
-     $fields['billing']['billing_city']['placeholder'] = "Città";
-     $fields['billing']['billing_postcode']['placeholder'] = "Codice Postale*";
+    {
+    
+    $fields['billing']['billing_address_1']['placeholder'] = __( 'Via e numero civico*', 'woocommerce' );
+    $fields['billing']['billing_city']['placeholder'] = "Città";
+    $fields['billing']['billing_postcode']['placeholder'] = "Codice Postale*";
 
      return $fields;
      }
+
+     add_filter('woocommerce_default_address_fields', 'override_default_address_checkout_fields', 20, 1);
+    
+    function override_default_address_checkout_fields( $address_fields ) {
+        $address_fields['address_1']['placeholder'] = 'Via e numero civico*';
+    
+        return $address_fields;
+    }

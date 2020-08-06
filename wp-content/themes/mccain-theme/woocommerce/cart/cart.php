@@ -26,8 +26,8 @@ do_action( 'woocommerce_before_cart' ); ?>
 		<thead>
 			<tr>
 					<th></th>
-					<th class="product-subtotal"><?php esc_html_e( 'Total', 'woocommerce' ); ?></th>
-					<th class="product-quantity"><?php esc_html_e( 'Quantity', 'woocommerce' ); ?></th>
+					<th class="product-subtotal"><?php esc_html_e( 'Totale', 'woocommerce' ); ?></th>
+					<th class="product-quantity"><?php esc_html_e( 'Quantità', 'woocommerce' ); ?></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -45,17 +45,6 @@ do_action( 'woocommerce_before_cart' ); ?>
 
 					<td class="product-name" data-title="<?php esc_attr_e( 'Product', 'woocommerce' ); ?>"  rowspan="2">
 						<div class="custom-product-data">
-							<div class="product-image">
-									<?php
-									$thumbnail = apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key );
-
-									if ( ! $product_permalink ) {
-										echo $thumbnail; // PHPCS: XSS ok.
-									} else {
-										printf( '<a href="%s">%s</a>', esc_url( $product_permalink ), $thumbnail ); // PHPCS: XSS ok.
-									}
-									?>
-							</div>
 							<div class="product-data">
 								<?php
 								if ( ! $product_permalink ) {
