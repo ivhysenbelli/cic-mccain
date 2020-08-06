@@ -22,7 +22,7 @@ $container = get_theme_mod( 'understrap_container_type' );
                 <div class="row">
                     <div class="col-12">
                         <div class="legal-elem">
-                            <a href="/legal-discalimer">Legal Disclaimer</a>
+                            <a href="/legal-disclaimer">Termini e Condizioni</a>
                         </div>
                         <div class="social-links">
                             <div class="links">

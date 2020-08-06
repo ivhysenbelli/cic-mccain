@@ -115,7 +115,7 @@ function add_product_to_cart() {
     function custom_override_checkout_fields($fields)
      {
      $fields['billing']['billing_address_1']['placeholder'] = "Via e numero civico*";
-     $fields['billing']['billing_city']['placeholder'] = "Citta";
+     $fields['billing']['billing_city']['placeholder'] = "Città";
      $fields['billing']['billing_postcode']['placeholder'] = "Codice Postale*";
 
      return $fields;
