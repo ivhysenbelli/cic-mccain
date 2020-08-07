@@ -19,16 +19,19 @@ jQuery(document).ready(function($) {
     var dt = new Date();
     var time = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds();
 
-    if(timeToSeconds(time) < timeToSeconds(closeDay) && timeToSeconds(time) > timeToSeconds(closeNoon)){
+    if (timeToSeconds(time) < timeToSeconds(closeDay) && timeToSeconds(time) > timeToSeconds(closeNoon)) {
         $('p#lunch_time_slot_field').addClass('show-elem');
+        $('p#dinner_time_slot_field select').val("None").change();
     }
 
-    if( timeToSeconds(time) < timeToSeconds(openMiday)){
+    if (timeToSeconds(time) < timeToSeconds(openMiday)) {
         $('p#lunch_time_slot_field').addClass('show-elem');
+        $('p#dinner_time_slot_field select').val("None").change();
     }
 
-    if( timeToSeconds(time) < timeToSeconds(openNoon) && timeToSeconds(time) >  timeToSeconds(closeMiday) ){
+    if (timeToSeconds(time) < timeToSeconds(openNoon) && timeToSeconds(time) > timeToSeconds(closeMiday)) {
         $('p#dinner_time_slot_field').addClass('show-elem');
+        $('p#lunch_time_slot_field select').val("None").change();
     }
 
     $('p#billing_address_1_field,p#billing_city_field, p#billing_postcode_field, p#billing_apartament_nr_field').wrapAll('<div class="shipping-wrapper-fields"></div>');

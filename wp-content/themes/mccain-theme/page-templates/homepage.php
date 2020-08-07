@@ -49,7 +49,7 @@ else{
                         </div>
                     </section>
 
-                    <section class="description d-flex align-items-center just-content-center">
+                    <section class="description d-flex align-items-center justify-content-center">
                         <div class="row">
                             <div class="col-md-8 m-auto">
                                 <div class="data">
