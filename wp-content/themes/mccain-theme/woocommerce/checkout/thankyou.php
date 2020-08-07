@@ -70,7 +70,12 @@ defined( 'ABSPATH' ) || exit;
                     <?php 
                     $meta_data = $order->get_meta_data();
                     esc_html_e( 'Consegna:' , 'woocommerce' ); ?>
+                    <?php if ($meta_data[3]->value != NULL): ?>
                     <strong><?php echo $meta_data[3]->value; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></strong>
+                    <?php else: ?>
+                        <?php $time = $order->get_date_created()->format('H:i'); ?>
+                        <strong><?php echo $time. " - ".date('H:i',(strtotime($time)+2700))  // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></strong>
+                    <?php endif; ?>
                 </li>
                 
                 <?php if ( $order->get_payment_method_title() ) : ?>

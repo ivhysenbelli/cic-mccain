@@ -154,7 +154,7 @@ function my_custom_checkout_field_display_admin_order_meta($order){
 /**
  * Update the order meta with field value
  */
-add_action( 'woocommerce_checkout_update_order_meta_2', 'my_custom_checkout_field_update_order_meta' );
+add_action( 'woocommerce_checkout_update_order_meta', 'my_custom_checkout_field_update_order_meta_2' );
 
 function my_custom_checkout_field_update_order_meta_2( $order_id ) {
     if ( ! empty( $_POST['dinner_time_slot'] ) ) {
@@ -166,7 +166,7 @@ function my_custom_checkout_field_update_order_meta_2( $order_id ) {
 /**
  * Display field value on the order edit page
  */
-add_action( 'woocommerce_admin_order_data_after_billing_address_2', 'my_custom_checkout_field_display_admin_order_meta', 10, 1 );
+add_action( 'woocommerce_admin_order_data_after_billing_address', 'my_custom_checkout_field_display_admin_order_meta_2', 10, 1 );
 
 function my_custom_checkout_field_display_admin_order_meta_2($order){
     echo '<p><strong>'.__('Dinner time').':</strong> <br/>' . get_post_meta( $order->get_id(), 'dinner_time_slot', true ) . '</p>';

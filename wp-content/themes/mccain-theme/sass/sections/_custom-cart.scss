@@ -158,6 +158,11 @@
     #customer_details {
         margin-top: 3em;
     }
+    .woocommerce-table__line-item.order_item{
+        a{
+            pointer-events: none;
+        }
+    }
 }
 
 .woocommerce-billing-fields {
@@ -201,7 +206,7 @@
             
             &#dinner_time_slot_field,
             &#lunch_time_slot_field{
-                display: none;
+                // display: none;
                 &.show-elem{
                     display: block;
                 }
