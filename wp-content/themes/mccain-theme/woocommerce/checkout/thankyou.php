@@ -44,12 +44,12 @@ defined( 'ABSPATH' ) || exit;
             <ul class="woocommerce-order-overview woocommerce-thankyou-order-details order_details">
 
                 <li class="woocommerce-order-overview__order order">
-                    <?php esc_html_e( 'Order number:', 'woocommerce' ); ?>
+                    <?php esc_html_e( 'Numero d\'ordine:', 'woocommerce' ); ?>
                     <strong><?php echo $order->get_order_number(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></strong>
                 </li>
 
                 <li class="woocommerce-order-overview__date date">
-                    <?php esc_html_e( 'Date:', 'woocommerce' ); ?>
+                    <?php esc_html_e( 'Data:', 'woocommerce' ); ?>
                     <strong><?php echo wc_format_datetime( $order->get_date_created() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></strong>
                 </li>
 
@@ -61,7 +61,7 @@ defined( 'ABSPATH' ) || exit;
                 <?php endif; ?>
 
                 <li class="woocommerce-order-overview__total total">
-                    <?php esc_html_e( 'Total:', 'woocommerce' ); ?>
+                    <?php esc_html_e( 'Totale:', 'woocommerce' ); ?>
                     <strong><?php echo $order->get_formatted_order_total(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></strong>
                 </li>
 
@@ -69,13 +69,13 @@ defined( 'ABSPATH' ) || exit;
 
                     <?php 
                     $meta_data = $order->get_meta_data();
-                    esc_html_e( 'Estimated Time' , 'woocommerce' ); ?>
+                    esc_html_e( 'Consegna:' , 'woocommerce' ); ?>
                     <strong><?php echo $meta_data[3]->value; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></strong>
                 </li>
                 
                 <?php if ( $order->get_payment_method_title() ) : ?>
                     <li class="woocommerce-order-overview__payment-method method">
-                        <?php esc_html_e( 'Payment method:', 'woocommerce' ); ?>
+                        <?php esc_html_e( 'Metodo di pagamento:', 'woocommerce' ); ?>
                         <strong><?php echo wp_kses_post( $order->get_payment_method_title() ); ?></strong>
                     </li>
                 <?php endif; ?>
@@ -89,7 +89,8 @@ defined( 'ABSPATH' ) || exit;
 
     <?php else : ?>
 
-        <p class="woocommerce-notice woocommerce-notice--success woocommerce-thankyou-order-received"><?php echo apply_filters( 'woocommerce_thankyou_order_received_text', esc_html__( 'Thank you. Your order has been received.', 'woocommerce' ), null ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
+        <p class="woocommerce-notice woocommerce-notice--success woocommerce-thankyou-order-received"><?php echo apply_filters( 'woocommerce_thankyou_order_received_text', esc_html__( 'Grazie per avere ordinato da noi!
+HameriCain e le SureCrisp arriveranno da te entro l\'orario stimato', 'woocommerce' ), null ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
 
     <?php endif; ?>
 
