@@ -171,3 +171,9 @@ add_action( 'woocommerce_admin_order_data_after_billing_address', 'my_custom_che
 function my_custom_checkout_field_display_admin_order_meta_2($order){
     echo '<p><strong>'.__('Dinner time').':</strong> <br/>' . get_post_meta( $order->get_id(), 'dinner_time_slot', true ) . '</p>';
 }
+
+add_action( 'woocommerce_review_order_before_submit', 'bbloomer_privacy_message_below_checkout_button' );
+ 
+function bbloomer_privacy_message_below_checkout_button() {
+   echo "<p style='margin: 0.5em 0'>HameriCain e Surecrisp ti verranno consegnati entro 45 minuti dal momento dell'ordine durante gli orari d'apertura. </p>";
+}
